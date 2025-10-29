@@ -1,5 +1,5 @@
 import * as readline from 'readline';
-import { sum } from './math.ts';
+import { sum, multiply } from './math.ts';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -22,9 +22,10 @@ async function main() {
   console.log('DEBUG: main() function started');
   console.log('Welcome! Choose a function to test:');
   console.log('1. Sum two numbers');
-  console.log('2. Exit');
+  console.log('2. Multiply two numbers');
+  console.log('3. Exit');
 
-  const choice = await askQuestion('Enter your choice (1-2): ');
+  const choice = await askQuestion('Enter your choice (1-3): ');
 
   switch (choice) {
     // Sum case
@@ -34,8 +35,15 @@ async function main() {
       console.log(`sum(${a1}, ${b1}) =`, sum(a1, b1));
       break;
 
-    // Exit case
+    // Multiply case
     case '2':
+      const a2 = parseFloat(await askQuestion('Enter first number: '));
+      const b2 = parseFloat(await askQuestion('Enter second number: '));
+      console.log(`multiply(${a2}, ${b2}) =`, multiply(a2, b2));
+      break;
+
+    // Exit case
+    case '3':
       console.log('Goodbye!');
       rl.close();
       return;
