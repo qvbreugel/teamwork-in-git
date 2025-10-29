@@ -6,6 +6,10 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+console.log('DEBUG: readline interface created');
+console.log('DEBUG: Starting program initialization...');
+console.log('DEBUG: Import statements executed successfully ✅');
+
 function askQuestion(question: string): Promise<string> {
   return new Promise((resolve) => {
     rl.question(question, (answer) => {
@@ -15,6 +19,7 @@ function askQuestion(question: string): Promise<string> {
 }
 
 async function main() {
+  console.log('DEBUG: main() function started');
   console.log('Welcome! Choose a function to test:');
   console.log('1. Sum two numbers');
   console.log('2. Exit');
